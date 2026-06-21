@@ -30,7 +30,7 @@ class DataController(BaseController):
         
         return True, ResponseSignal.FILE_VAILDATED_SUCESS.value
     
-    def generate_unique_filename(self, orig_file_name: str, project_id: str):
+    def generate_unique_filepath(self, orig_file_name: str, project_id: str):
 
         random_key = BaseController().generate_random_string()
 
@@ -58,7 +58,7 @@ class DataController(BaseController):
                 random_key + "_" + cleaned_file_name
             )
 
-        return new_file_path
+        return new_file_path, random_key + "_" + cleaned_file_name
 
 
     # To avoid errors from the user's file name you need to clean the file name to avoid any problems
